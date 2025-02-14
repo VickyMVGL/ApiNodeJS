@@ -65,6 +65,15 @@ app.put("/drivers/:id", (req, res) => {
     res.json(data.drivers[driverIndex]);
 });
 
+app.delete("/drivers/:id", (req, res) => {
+    const data = readData();
+    const id = parseInt(req.params.id);
+    const driverIndex = data.drivers.findIndex((driver) => driver.id === id);
+    data.drivers.splice(driverIndex, 1);
+    writeData(data);
+    res.json(data.drivers);
+});
+
 app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000');
 });
