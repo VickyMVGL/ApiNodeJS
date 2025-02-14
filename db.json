@@ -1,0 +1,147 @@
+{
+    "formula-1-drivers": [
+        {
+            "id": 1,
+            "name": "Lewis Hamilton",
+            "team": "Ferrari",
+            "country": "Reino Unido",
+            "number": 44
+        },
+        {
+            "id": 2,
+            "name": "Max Verstappen",
+            "team": "Red Bull Racing",
+            "country": "Países Bajos",
+            "number": 33
+        },
+        {
+            "id": 3,
+            "name": "Charles Leclerc",
+            "team": "Ferrari",
+            "country": "Mónaco",
+            "number": 16
+        },
+        {
+            "id": 4,
+            "name": "Andrea Kimi Antonelli",
+            "team": "Mercedes",
+            "country": "Italia",
+            "number": 12
+        },
+        {
+            "id": 5,
+            "name": "Carlos Sainz",
+            "team": "Williams Racing",
+            "country": "España",
+            "number": 55
+        },
+        {
+            "id": 6,
+            "name": "Oscar Piastri",
+            "team": "McLaren",
+            "country": "Australia",
+            "number": 81
+        },
+        {
+            "id": 7,
+            "name": "Lando Norris",
+            "team": "McLaren",
+            "country": "Reino Unido",
+            "number": 4
+        },
+        {
+            "id": 8,
+            "name": "Lance Stroll",
+            "team": "Aston Martin",
+            "country": "Canada",
+            "number": 18
+        },
+        {
+            "id": 9,
+            "name": "Fernando Alonso",
+            "team": "Aston Martin",
+            "country": "España",
+            "number": 14
+        },
+        {
+            "id": 10,
+            "name": "Esteban Ocon",
+            "team": "Haas F1 Team",
+            "country": "Francia",
+            "number": 31
+        },
+        {
+            "id": 11,
+            "name": "Pierre Gasly",
+            "team": "Alpine F1 Team",
+            "country": "Francia",
+            "number": 10
+        },
+        {
+            "id": 12,
+            "name": "Yuki Tsunoda",
+            "team": "Racing Bulls",
+            "country": "Japón",
+            "number": 22
+        },
+        {
+            "id": 13,
+            "name": "Oliver Bearman",
+            "team": "Haas F1 Team",
+            "country": "Reino Unido",
+            "number": 87
+        },
+        {
+            "id": 14,
+            "name": "Alex Albon",
+            "team": "Williams Racing",
+            "country": "Tailandia",
+            "number": 23
+        },
+        {
+            "id": 15,
+            "name": "George Russell",
+            "team": "Mercedes",
+            "country": "Reino Unido",
+            "number": 63
+        },
+        {
+            "id": 16,
+            "name": "Franco Colapinto",
+            "team": "Alpine F1 Team",
+            "country": "Argentina",
+            "number": 43
+        },
+        {
+            "id": 17,
+            "name": "Isack Hadjar",
+            "team": "Racing Bulls",
+            "country": "Francia",
+            "number": 6
+        },
+        {
+            "id": 18,
+            "name": "Nico Hulkenberg",
+            "team": "Kick Sauber",
+            "country": "Alemania",
+            "number": 27
+        },
+        {
+            "id": 19,
+            "name": "Gabriel Bortoleto",
+            "team": "Kick Sauber",
+            "country": "Brasil",
+            "number": 5
+        },
+        {
+            "id": 20,
+            "name": "Liam Lawson(Saquenlo de aqui)",
+            "team": "Red Bull Racing",
+            "country": "Nueva Zelanda",
+            "number": 30
+        }
+
+       
+
+    ]
+}
