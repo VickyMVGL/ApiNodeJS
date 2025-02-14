@@ -1,5 +1,5 @@
 {
-    "formula-1-drivers": [
+    "drivers": [
         {
             "id": 1,
             "name": "Lewis Hamilton",
