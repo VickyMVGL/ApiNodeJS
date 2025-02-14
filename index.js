@@ -27,6 +27,7 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
+
 app.get("/drivers", (req, res) => {
     const data = readData();
     res.json(data.drivers);

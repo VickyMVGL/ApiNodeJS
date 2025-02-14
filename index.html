@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>Información del conductor</title>
+</head>
+<body>
+    <h1>Información del conductor</h1>
+
+    <form id="driverForm">
+        <label for="driverId">ID del conductor:</label>
+        <input type="number" id="driverId" name="driverId" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <div id="result">
+        </div>
+
+    <script>
+        const form = document.getElementById('driverForm');
+        const resultDiv = document.getElementById('result');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Evita que se recargue la página
+
+            const driverId = document.getElementById('driverId').value;
+            console.log('ID del conductor:', driverId);
+
+            try {
+                const response = await fetch(`/drivers/${driverId}`);
+                if (!response.ok) {
+                    throw new Error(`Error ${response.status}: ${response.statusText}`);
+                }
+                const driver = await response.json();
+
+                if (driver) {
+                    // Aquí puedes mostrar la información del conductor en el div 'result'
+                    resultDiv.innerHTML = `
+                        <h2>${driver.name}</h2>
+                        <p>ID: ${driver.id}</p>
+                        <p>Team: ${driver.team}</p>
+                        <p>Numero: ${driver.number}</p>
+                        <p>Pais: ${driver.country}</p>
+                        </ul>
+                    `;
+                } else {
+                    resultDiv.innerHTML = '<p>No se encontró ningún conductor con ese ID.</p>';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = '<p>Ocurrió un error al obtener la información.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
