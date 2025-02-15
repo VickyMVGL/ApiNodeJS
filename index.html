@@ -67,15 +67,18 @@
                 }
                 const driver = await response.json();
 
-                resultDiv.innerHTML = `
+                if (!driver) {
+                    resultDiv.innerHTML = `<p>'Conductor no encontrado'</p>`;
+                }else{
+                    resultDiv.innerHTML = `
                     <h2>Información del Conductor</h2>
                     <p><strong>ID:</strong> ${driver.id}</p>
                     <p><strong>Nombre:</strong> ${driver.name}</p>
                     <p><strong>Pais:</strong> ${driver.country}</p>
                     <p><strong>Equipo:</strong> ${driver.team}</p>
                     <p><strong>Numero:</strong> ${driver.number}</p>
-
-                `;
+                    `;
+                }
             } catch (error) {
                 resultDiv.innerHTML = `<p class="error">${error.message}</p>`;
             }
