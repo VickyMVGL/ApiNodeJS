@@ -1,52 +1,83 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <title>Información del conductor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Conductor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <h1>Información del conductor</h1>
-
-    <form id="driverForm">
-        <label for="driverId">ID del conductor:</label>
-        <input type="number" id="driverId" name="driverId" required>
-        <button type="submit">Buscar</button>
-    </form>
-
-    <div id="result">
-        </div>
+    <div class="container">
+        <h1>Buscar Conductor por ID</h1>
+        <form id="driverForm">
+            <input type="number" id="driverId" placeholder="Ingrese el ID del conductor" required>
+            <button type="submit">Buscar</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
 
     <script>
-        const form = document.getElementById('driverForm');
-        const resultDiv = document.getElementById('result');
-
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault(); // Evita que se recargue la página
+        document.getElementById('driverForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
 
             const driverId = document.getElementById('driverId').value;
-            console.log('ID del conductor:', driverId);
+            const resultDiv = document.getElementById('result');
 
             try {
-                const response = await fetch(`/drivers/${driverId}`);
+                const response = await fetch(`http://localhost:3000/drivers/${driverId}`);
                 if (!response.ok) {
-                    throw new Error(`Error ${response.status}: ${response.statusText}`);
+                    throw new Error('Conductor no encontrado');
                 }
                 const driver = await response.json();
 
-                if (driver) {
-                    // Aquí puedes mostrar la información del conductor en el div 'result'
-                    resultDiv.innerHTML = `
-                        <h2>${driver.name}</h2>
-                        <p>ID: ${driver.id}</p>
-                        <p>Team: ${driver.team}</p>
-                        <p>Numero: ${driver.number}</p>
-                        <p>Pais: ${driver.country}</p>
-                        </ul>
-                    `;
-                } else {
-                    resultDiv.innerHTML = '<p>No se encontró ningún conductor con ese ID.</p>';
-                }
+                resultDiv.innerHTML = `
+                    <h2>Información del Conductor</h2>
+                    <p><strong>ID:</strong> ${driver.id}</p>
+                    <p><strong>Nombre:</strong> ${driver.name}</p>
+                    <p><strong>Pais:</strong> ${driver.country}</p>
+                    <p><strong>Equipo:</strong> ${driver.team}</p>
+                    <p><strong>Numero:</strong> ${driver.number}</p>
+
+                `;
             } catch (error) {
-                console.error('Error:', error);
-                resultDiv.innerHTML = '<p>Ocurrió un error al obtener la información.</p>';
+                resultDiv.innerHTML = `<p class="error">${error.message}</p>`;
             }
         });
     </script>

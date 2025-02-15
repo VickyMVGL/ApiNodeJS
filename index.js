@@ -1,9 +1,18 @@
 import express from 'express';
 import fs from 'fs';
 import bodyParser from 'body-parser';
+import path from 'path';
+import cors from 'cors';
+
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
+
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 const readData = () => {
     try {
